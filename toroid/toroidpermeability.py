@@ -6,23 +6,24 @@ print(ans,type(ans))
 
 if ans==1:
     ans=input("Please input the diameter of the cross section in cm\n")
-    area=(2*math.pi)*(ans/2)
+    area=(math.pi)*(ans/2)*0.01*(ans/2)*0.01#cm to meters
     print(area)
 else:    
     ans=input("Please input the height of the cross section in cm\n")
-    area=ans
+    area=ans*0.01#cm to meters
     ans=input("Please input the width the cross section in cm\n")
-    area=area*area
-    print(area)
+    area=area*ans*0.01 #cm to meters
+    print(area,'m2')
 
 ans=input("Please input the diameter of the toroid, use the centerline\n")
-radius=ans/2
+radius=(ans/2)*0.01#cm to meters
 ans=input("Please input the number of coils\n")
-N=ans/2
+N=ans
 
-ans=input("Please input the inductance of the toroid inductor.\n")
-L=ans/2
+ans=input("Please input the inductance of the toroid inductor in mH\n")
+L=ans*0.001#mH to H
 
 u=(2*math.pi*radius*L)/((N*N)*area)
-print("The Approximate Inductance of this Toroid is:\n")
-print(L)
+ur=u/0.00000126 #1.26*10^-6, free space permeability
+print("The Approximate Relative Permeability  of this Toroid is:\n")
+print(ur)
